@@ -40,3 +40,79 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title goes here"], ["description", "Desc goes here..."], ["created_at", "2020-03-25 03:07:20.801522"], ["updated_at", "2020-03-25 03:07:20.801522"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts/new" for ::1 at 2020-03-24 20:11:26 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 349ms (Views: 329.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/posts" for ::1 at 2020-03-24 20:11:39 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MAcFcF9nfHG7MAfAolk/6rNYbVrfA/SsHFUgXtmLTUwYmBiTuw22aFDFEIh+z+MnOLDWzf11cKJkyBnnjJzCPw==", "title"=>"my favorite article ", "description"=>"my favorite article", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "my favorite article "], ["description", "my favorite article"], ["created_at", "2020-03-25 03:11:39.219228"], ["updated_at", "2020-03-25 03:11:39.219228"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-03-24 20:12:04 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts" for ::1 at 2020-03-24 20:12:10 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"So8/P3nzFBIESIOfBzLZZUErZt6mn20JEJ1b8Zv0kOBiECLcnZneC++9lNfbpAWoysPdSYTp6QdoAGJIzuMfkw==", "title"=>"my favorite article ", "description"=>"my fave", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "my favorite article "], ["description", "my fave"], ["created_at", "2020-03-25 03:12:10.127582"], ["updated_at", "2020-03-25 03:12:10.127582"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.8ms)
+
+
+  
+NoMethodError (undefined method `to' for #<PostsController:0x00007fcefe831da8>
+Did you mean?  t):
+  
+app/controllers/posts_controller.rb:21:in `create'
+  Rendering /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.0ms)
+  Rendering /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/jordanlong/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.1ms)
+Started GET "/posts/new" for ::1 at 2020-03-24 20:12:19 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 14.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts" for ::1 at 2020-03-24 20:12:24 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a9zx6tGK2aoRJF5l0pH1d3nv+FMTNDzMJ5h7eAOY7jlDQ+wJNeATs/rRSS0OBym68gdDxDFCuMJfBULBVo9hSg==", "title"=>"my favorite article ", "description"=>"my fave", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "my favorite article "], ["description", "my fave"], ["created_at", "2020-03-25 03:12:24.740148"], ["updated_at", "2020-03-25 03:12:24.740148"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/5" for ::1 at 2020-03-24 20:12:24 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.2ms)
+
+
